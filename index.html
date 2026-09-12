@@ -553,6 +553,33 @@ body.is-admin .cap-action-btn{display:inline-flex}
 .pod-modernize{margin:8px 0 0;font-size:12px;line-height:1.4;color:var(--blue-deep);background:var(--blue-pale);border:1px solid var(--blue);border-radius:8px;padding:7px 12px;font-weight:500;flex-shrink:0}
 .pod-modernize strong{font-weight:700}
 *,*::before,*::after{box-sizing:border-box}
+
+/* ---- PHONE CONSOLIDATED FIX (No. 04): applies below 820px only ---- */
+@media (max-width:819px){
+  #topbar{padding:0 14px;gap:10px}
+  .brand-divider,.brand-text{display:none}
+  .topbar-actions{margin-left:auto}
+  #play-btn{display:none}
+  main{position:static;height:auto;min-height:0;padding-top:56px;padding-bottom:64px;overflow:visible}
+  .scene{height:auto;min-height:0;overflow:visible;padding:16px 16px 24px}
+  .scene>*{max-width:100%}
+  h2{font-size:26px}
+  .grid-3,.grid-4,.grid-2,.agenda-grid,.cover-attendees,.j-body,.loop-diagram,.map-row,.flow-row{grid-template-columns:1fr}
+  .map-row,.flow-row{display:grid}
+  .map-arrow,.flow-arrow{display:none}
+  .map-status,.flow-status{white-space:normal;align-items:flex-start;line-height:1.35}
+  .map-badge{flex-shrink:0}
+  .j-tabs{flex-wrap:wrap;overflow:visible}
+  .j-tab{flex:1 1 30%;min-width:0;padding:8px 6px;font-size:11px}
+  .j-tl-track{flex-wrap:wrap;gap:12px 0}
+  .j-tl-stage{flex:1 1 30%}
+  .j-tl-line{display:none}
+  .muscle-flow{display:none}
+  .loop-diagram svg,.loop-spokes{display:none}
+  .pod-html.p4a{overflow:visible;flex:none}
+  .cap-cats{flex-wrap:wrap}
+  #cap-panel{width:100vw;max-width:100vw}
+}
 </style>
 </head>
 <body>
