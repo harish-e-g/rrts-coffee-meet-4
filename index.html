@@ -1036,7 +1036,7 @@ body[data-scene="0"] #constellation,body[data-scene="9"] #constellation{opacity:
 .clk-gap2{stroke:#FECACA;stroke-dasharray:205.2 703.7;transform:rotate(-90deg)}               /* 0 to 7 = 7h */
 .clk-sme1{stroke:var(--teal);stroke-dasharray:205.2 703.7;transform:rotate(165deg);opacity:0}
 .clk-sme2{stroke:var(--teal);stroke-dasharray:205.2 703.7;transform:rotate(-90deg);opacity:0}
-.clk-window{stroke:var(--coral);stroke-width:5;stroke-dasharray:167.6 804.2;transform:rotate(165deg);stroke-linecap:round;opacity:.9} /* 17 to 22 = 5h of r128: C=804.2; 5/24=167.6 */
+.clk-window{stroke:var(--coral);stroke-width:5;stroke-dasharray:268.1 804.2;transform:rotate(165deg);stroke-linecap:round;opacity:.9} /* 17:00 to 01:00 = 8h of r128: C=804.2; 8/24=268.1 */
 .clk-ticks line{stroke:var(--ink-mid);stroke-width:2}
 .clk-lbl{font-size:11px;font-weight:700;fill:var(--ink-mid);text-anchor:middle;font-family:inherit;letter-spacing:1px}
 .clk-fails circle{fill:var(--coral);transform-origin:150px 150px;animation:ring 2.4s ease-out infinite}
@@ -1296,7 +1296,7 @@ body.print-mode .plan-steps::after{display:none}
         <div class="stat-sub">31 Aug to 10 Sep &middot; 11 days</div>
       </div>
       <div class="card stat-card" data-c="coral">
-        <div class="stat-num">5 to 10 <span class="stat-unit">PM CT</span></div>
+        <div class="stat-num">5 PM<span class="stat-unit"> to</span> 1 AM <span class="stat-unit">CT</span></div>
         <div class="stat-label">The failure window</div>
         <div class="stat-sub">Peak job load, no DBA on shift</div>
       </div>
@@ -1314,7 +1314,7 @@ body.print-mode .plan-steps::after{display:none}
     <div class="grid-2 diag-grid">
       <div class="card chain-card" data-build="2">
         <div class="chain-head"><svg class="ico"><use href="#i-alert-triangle"/></svg>The chain reaction, and where it sits</div>
-        <div class="chain-row chain-row-compact"><span class="chain-node coral tank-node"><span class="tank" aria-hidden="true"><i class="tank-fill"></i><b class="tank-line"></b></span>Log space fills<br><small>5 to 10 PM CT</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node coral">Line Haul job fails<br><small>most critical job</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Sales job fails<br><small>dependent</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Scheduled jobs and SSIS refreshes fail<br><small>chain reaction</small></span></div>
+        <div class="chain-row chain-row-compact"><span class="chain-node coral tank-node"><span class="tank" aria-hidden="true"><i class="tank-fill"></i><b class="tank-line"></b></span>Log space fills<br><small>5 PM to 1 AM CT</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node coral">Line Haul job fails<br><small>most critical job</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Sales job fails<br><small>dependent</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Scheduled jobs and SSIS refreshes fail<br><small>chain reaction</small></span></div>
         <div class="cause-item"><span class="cause-k">Three suspects</span><span class="cause-v">Long-running queries in the window, parallel job schedules competing for the same server, and high memory occupation. First failure on 13 August, the day after the 12 August production push.</span></div>
         <div class="cause-item"><span class="cause-k">Where it sits</span><span class="cause-v">On the shared legacy estate both BI tracks depend on. The modernisation stack is stable, but every outage blocks both.</span></div>
               </div>
@@ -1380,7 +1380,7 @@ body.print-mode .plan-steps::after{display:none}
     <div class="act-grid" data-build="1">
       <div class="act" data-c="coral" onclick="actInfo(0)"><span class="stamp">ELIMINATED</span><span class="act-n">1</span><span class="act-ic"><svg class="ico"><use href="#i-refresh"/></svg></span><div class="act-t">Prolane table population rolled back</div><div class="act-d">Load into the modernisation environment reversed to take pressure off the shared server.</div><span class="act-tag">ROLLBACK</span></div>
       <div class="act" data-c="gold" onclick="actInfo(1)"><span class="stamp">ELIMINATED</span><span class="act-n">2</span><span class="act-ic"><svg class="ico"><use href="#i-calendar"/></svg></span><div class="act-t">Spot Quotes modified and rescheduled</div><div class="act-d">Query reworked and moved so it no longer competes inside the peak window.</div><span class="act-tag">RESCHEDULE</span></div>
-      <div class="act" data-c="blue" onclick="actInfo(2)"><span class="stamp">ELIMINATED</span><span class="act-n">3</span><span class="act-ic"><svg class="ico"><use href="#i-server"/></svg></span><div class="act-t">Disk space added for the transaction log</div><div class="act-d">Headroom given to the log that fills during the 5 to 10 PM CT window.</div><span class="act-tag">CAPACITY</span></div>
+      <div class="act" data-c="blue" onclick="actInfo(2)"><span class="stamp">ELIMINATED</span><span class="act-n">3</span><span class="act-ic"><svg class="ico"><use href="#i-server"/></svg></span><div class="act-t">Disk space added for the transaction log</div><div class="act-d">Headroom given to the log that fills during the 5 PM to 1 AM CT window.</div><span class="act-tag">CAPACITY</span></div>
       <div class="act" data-c="violet" onclick="actInfo(3)"><span class="stamp">ELIMINATED</span><span class="act-n">4</span><span class="act-ic"><svg class="ico"><use href="#i-layers"/></svg></span><div class="act-t">7:30 PM Line Haul schedule removed</div><div class="act-d">Analysis showed it regularly skipped the 11:30 PM run. Duplicate schedule retired.</div><span class="act-tag">SCHEDULE</span></div>
       <div class="act" data-c="teal" onclick="actInfo(4)"><span class="stamp">ELIMINATED</span><span class="act-n">5</span><span class="act-ic"><svg class="ico"><use href="#i-rocket"/></svg></span><div class="act-t">Gateway upgraded</div><div class="act-d">Copy command now works, giving faster runtimes and shorter time inside the window.</div><span class="act-tag">UPGRADE</span></div>
       <div class="act" data-c="green" onclick="actInfo(5)"><span class="stamp">ELIMINATED</span><span class="act-n">6</span><span class="act-ic"><svg class="ico"><use href="#i-git-branch"/></svg></span><div class="act-t">Sales job disabled in dev workspace</div><div class="act-d">Non-production load removed from the server during peak hours.</div><span class="act-tag">LOAD</span></div>
@@ -1419,8 +1419,8 @@ body.print-mode .plan-steps::after{display:none}
           <div class="clock-side">
             <div class="clk-key"><i class="k-day"></i>Day shift, 7 AM to 5 PM</div>
             <div class="clk-key"><i class="k-gap"></i>No cover, 5 PM to 7 AM</div>
-            <div class="clk-key k-sme-row"><i class="k-sme"></i>SME on shift, 5 PM to 7 AM</div>
-            <div class="clk-key"><i class="k-fail"></i>Five failures, 5 to 10 PM</div>
+            <div class="clk-key k-sme-row"><i class="k-sme"></i>SME on shift, TBD</div>
+            <div class="clk-key"><i class="k-fail"></i>Five failures, 5 PM to 1 AM</div>
             <button class="cov-toggle" id="cov-toggle" onclick="toggleCover()"><span class="cov-knob"></span><span class="cov-toggle-label">Today: day shift only</span></button>
             <div class="cov-out" id="cov-out">Failure at 6 PM waits 13 hours for the first intervention.</div>
           </div>
@@ -1445,7 +1445,7 @@ body.print-mode .plan-steps::after{display:none}
     <div class="grid-2 plan-grid">
       <div class="card propose-card" data-build="1">
         <div class="chain-head"><svg class="ico"><use href="#i-headphones"/></svg>The proposal &middot; a database SME alongside your DBA</div>
-        <div class="propose-lead">A dedicated SQL Server subject matter expert from the Chennai ODC, on shift through the 5 to 10 PM CT window and overnight, working with your in-house DBA rather than around him.</div>
+        <div class="propose-lead">A dedicated SQL Server subject matter expert from the Chennai ODC, on shift TBD, working with your in-house DBA rather than around him.</div>
         <div class="propose-grid">
           <div class="pg-item"><b>Evening cover</b><small>On shift when the failures happen. Blocking sessions killed and jobs restarted on the spot.</small></div>
           <div class="pg-item"><b>Morning hand-off</b><small>Your DBA starts the day with a clean server and a written note of what happened overnight.</small></div>
@@ -1462,7 +1462,7 @@ body.print-mode .plan-steps::after{display:none}
       </div>
       <div class="card plan-card" data-build="2">
         <div class="chain-head"><svg class="ico"><use href="#i-tool"/></svg>Three steps the pod takes beside it</div>
-        <div class="plan-steps"><div class="remedy"><span class="remedy-n">1</span><div><div class="remedy-t">Full analysis of the 5 to 10 PM CT window</div><div class="remedy-d">Log and pointer analysis of every job in the window. Long-running queries, dependency chains and memory traces captured and shared with your DBA.</div></div></div>
+        <div class="plan-steps"><div class="remedy"><span class="remedy-n">1</span><div><div class="remedy-t">Full analysis of the 5 PM to 1 AM CT window</div><div class="remedy-d">Log and pointer analysis of every job in the window. Long-running queries, dependency chains and memory traces captured and shared with your DBA.</div></div></div>
         <div class="remedy"><span class="remedy-n">2</span><div><div class="remedy-t">Line-by-line review of the latest production push</div><div class="remedy-d">The first failure landed the day after the last deployment. Every query change in that push is being traced against the failing jobs.</div></div></div>
         <div class="remedy"><span class="remedy-n">3</span><div><div class="remedy-t">Reschedule and alert</div><div class="remedy-d">Remaining dev jobs moved out of the peak window and server-health alerting added, so a failure is seen the moment it happens rather than the next morning.</div></div></div></div>
         <div class="remedy-foot">These reduce failures. The SME is what turns them into zero-outage operations and a root cause found from the inside.</div>
@@ -1510,7 +1510,7 @@ body.print-mode .plan-steps::after{display:none}
   <p class="lead">Stabilise, recover, expand. Each milestone is measured and reported at the following coffee meet.</p>
   <div class="content-area">
     <div class="grid-3 road-grid" data-build="1">
-      <div class="card road-card" data-c="coral"><div class="road-n">30<small>days</small></div><div class="road-t">Stabilise</div><ul class="mini-list road-list"><li>Database SME on shift, hand-off running with your DBA</li><li>5 to 10 PM CT window analysed, root cause isolated</li><li>Dev jobs out of the window, alerting live</li><li>Target: zero unplanned outages in the window</li></ul></div>
+      <div class="card road-card" data-c="coral"><div class="road-n">30<small>days</small></div><div class="road-t">Stabilise</div><ul class="mini-list road-list"><li>Database SME on shift, hand-off running with your DBA</li><li>5 PM to 1 AM CT window analysed, root cause isolated</li><li>Dev jobs out of the window, alerting live</li><li>Target: zero unplanned outages in the window</li></ul></div>
       <div class="card road-card" data-c="gold"><div class="road-n">60<small>days</small></div><div class="road-t">Recover</div><ul class="mini-list road-list"><li>Yield Management Report delivered on the modern stack</li><li>The 30 days recovered with the prioritisation gate holding</li><li>Line Haul migration continuing on the recovered date</li><li>QA running on every release as a named role</li></ul></div>
       <div class="card road-card" data-c="teal"><div class="road-n">90<small>days</small></div><div class="road-t">Expand</div><ul class="mini-list road-list"><li>Optimization and Operations Research profile interviewed</li><li>Applied AI Solution Development profile interviewed</li><li>Modernised data layer positioned as the foundation for AI use cases</li><li>Monthly reviews shift from corrections to opportunities</li></ul></div>
     </div>
@@ -1534,7 +1534,7 @@ body.print-mode .plan-steps::after{display:none}
       <div class="card close-card commits">
         <div class="close-head"><span><svg class="ico"><use href="#i-check-circle"/></svg></span>What we ask of RRTS tonight</div>
         <div class="close-list">
-          <div class="close-item cat-blocker"><div class="close-item-cat">01 &middot; SERVER HEALTH</div><div class="close-item-text">Green light for the database SME to work alongside your DBA, starting with a joint session on the 5 to 10 PM CT window.</div></div>
+          <div class="close-item cat-blocker"><div class="close-item-cat">01 &middot; SERVER HEALTH</div><div class="close-item-text">Green light for the database SME to work alongside your DBA, starting with a joint session on the 5 PM to 1 AM CT window.</div></div>
           <div class="close-item cat-improvement"><div class="close-item-cat">02 &middot; FOCUS</div><div class="close-item-text">Agree the prioritisation gate for unplanned work so the Yield Management Report date is protected from here on.</div></div>
           <div class="close-item cat-question"><div class="close-item-cat">03 &middot; QUALITY</div><div class="close-item-text">Your view on QA as a named pod role from the next cycle.</div></div>
           <div class="close-item cat-praise opportunity"><span class="opp-tag">OPPORTUNITY</span><div class="close-item-cat">04 &middot; TALENT</div><div class="close-item-text">Confirmation to submit profiles for Optimization and Operations Research, Applied AI, and data science roles.</div></div>
