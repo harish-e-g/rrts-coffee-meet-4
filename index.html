@@ -695,6 +695,112 @@ body.print-mode .j-tl-track{padding-top:6px}
 #prop-footer.p1{background:var(--violet-pale)}#prop-footer.p1 .commit-footer-text{color:var(--violet-deep)}
 #prop-footer.p2{background:var(--teal-pale)}#prop-footer.p2 .commit-footer-text{color:var(--teal-deep)}
 body.print-mode .slip-fill{transition:none}
+
+/* ===== TIMELINE STRIP (scene 2) ===== */
+.tl-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.tl-strip::before{content:'';position:absolute;left:6%;right:6%;top:22px;height:2px;background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 14px)}
+.tl-stage{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0 14px 12px;box-shadow:var(--shadow);margin-top:22px}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:var(--surface);border:2.5px solid var(--blue);display:flex;align-items:center;justify-content:center;margin:-22px 0 8px}
+.tl-dot .ico{width:20px;height:20px;color:var(--blue)}
+.tl-stage[data-c=gold] .tl-dot{border-color:var(--gold)}.tl-stage[data-c=gold] .tl-dot .ico{color:var(--gold)}
+.tl-stage[data-c=green] .tl-dot{border-color:var(--green)}.tl-stage[data-c=green] .tl-dot .ico{color:var(--green)}
+.tl-when{font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-mid);margin-bottom:3px}
+.tl-title{font-size:clamp(14px,1.3vw,17px);font-weight:700;color:var(--ink);margin-bottom:5px}
+.tl-body{font-size:clamp(11px,1.02vw,12.8px);font-weight:500;color:var(--ink-soft);line-height:1.42}
+.scene.active .tl-stage{animation:rise .6s ease both}.scene.active .tl-stage:nth-child(2){animation-delay:.15s}.scene.active .tl-stage:nth-child(3){animation-delay:.3s}.scene.active .tl-stage:nth-child(4){animation-delay:.45s}
+.tl-closed{padding:10px 16px}
+.tl-closed .map-head{margin-bottom:8px}
+.closed-chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.cchip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:var(--surface);border:1px solid rgba(22,163,74,.3);font-size:clamp(11px,1vw,12.5px);font-weight:600;color:var(--ink)}
+.cchip b{font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--green-deep);text-transform:uppercase}
+.cchip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green)}
+.reflection.hand{background:var(--paper);border-left-color:var(--ink-mid)}.reflection.hand p{color:var(--ink);font-style:italic}
+/* ===== FINDINGS ===== */
+.learn-card{border-top:4px solid var(--blue)}.learn-card[data-c=coral]{border-top-color:var(--coral)}.learn-card[data-c=gold]{border-top-color:var(--gold)}
+.learn-k{font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-mid);margin-bottom:5px}
+.learn-card[data-c=coral] .learn-k{color:var(--coral-deep)}.learn-card[data-c=gold] .learn-k{color:var(--gold-deep)}.learn-card[data-c=blue] .learn-k{color:var(--blue-deep)}
+.learn-t{font-size:clamp(14px,1.3vw,17px);font-weight:700;color:var(--ink);margin-bottom:6px}
+.learn-d{font-size:clamp(11px,1.03vw,13px);font-weight:500;color:var(--ink-soft);line-height:1.42}
+/* ===== ROAD AHEAD ===== */
+.road-card{border-top:4px solid var(--coral)}.road-card[data-c=gold]{border-top-color:var(--gold)}.road-card[data-c=teal]{border-top-color:var(--teal)}
+.road-n{font-size:clamp(34px,3.8vw,48px);font-weight:700;line-height:1;color:var(--coral-deep);display:flex;align-items:baseline;gap:6px}
+.road-n small{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ink-mid)}
+.road-card[data-c=gold] .road-n{color:var(--gold-deep)}.road-card[data-c=teal] .road-n{color:var(--teal-deep)}
+.road-t{font-size:clamp(14px,1.35vw,18px);font-weight:700;color:var(--ink);margin:4px 0 8px}
+.road-list{margin-left:16px}.road-list li{line-height:1.42}
+.road-track{position:relative;height:10px;border-radius:999px;background:var(--border);margin:26px 4% 34px;flex-shrink:0}
+.road-fill{height:100%;border-radius:999px;width:0;background:linear-gradient(90deg,var(--coral),var(--gold),var(--teal));transition:width 1.6s cubic-bezier(.4,0,.2,1)}
+.road-pin{position:absolute;top:-8px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+.road-pin i{width:26px;height:26px;border-radius:50%;background:var(--surface);border:3px solid var(--blue-deep);display:block}
+.scene.active .road-card{animation:rise .6s ease both}.scene.active .road-card:nth-child(2){animation-delay:.15s}.scene.active .road-card:nth-child(3){animation-delay:.3s}
+body.print-mode .road-fill{transition:none}
+.scene[data-scene="6"] .content-area,.scene[data-scene="7"] .content-area{justify-content:flex-start;padding-top:8px;gap:10px}
+.scene[data-scene="1"] .content-area,.scene[data-scene="5"] .content-area{justify-content:center;gap:12px}
+.scene[data-scene="3"] .content-area{justify-content:center;gap:10px}
+.scene[data-scene="8"] .content-area{justify-content:center;gap:12px}
+@media (max-height:800px){.scene[data-scene="1"] .lead,.scene[data-scene="7"] .lead,.scene[data-scene="8"] .lead{display:none}.tl-body{font-size:11px}.learn-d{font-size:11px}.tl-stage{padding-bottom:9px}.scene[data-scene="3"] .ah-track{height:20px}.scene[data-scene="3"] .chip{padding:3px 8px;font-size:10.5px}.scene[data-scene="3"] .slip{padding:7px 14px 10px}.scene[data-scene="3"] .reflection{padding:8px 16px}}
+
+/* ===== ACTIONS WALL ===== */
+.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1 1 auto;min-height:0}
+.act{position:relative;background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:12px;padding:12px 14px 10px;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.act:hover,.act.picked{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.act.picked{outline:2px solid var(--ink);outline-offset:0}
+.act[data-c=coral]{border-top-color:var(--coral)}.act[data-c=gold]{border-top-color:var(--gold)}.act[data-c=violet]{border-top-color:var(--violet)}.act[data-c=teal]{border-top-color:var(--teal)}.act[data-c=green]{border-top-color:var(--green)}
+.act-n{position:absolute;top:10px;right:12px;font-size:22px;font-weight:700;color:var(--border);line-height:1}
+.act-ic{width:30px;height:30px;border-radius:8px;background:var(--paper);display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+.act-ic .ico{width:16px;height:16px;color:var(--ink-mid)}
+.act[data-c=coral] .act-ic .ico{color:var(--coral)}.act[data-c=gold] .act-ic .ico{color:var(--gold)}.act[data-c=blue] .act-ic .ico{color:var(--blue)}.act[data-c=violet] .act-ic .ico{color:var(--violet)}.act[data-c=teal] .act-ic .ico{color:var(--teal)}.act[data-c=green] .act-ic .ico{color:var(--green)}
+.act-t{font-size:clamp(12.5px,1.15vw,14.5px);font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:5px}
+.act-d{font-size:clamp(11px,1.02vw,12.5px);font-weight:500;color:var(--ink-soft);line-height:1.4;flex:1}
+.act-tag{align-self:flex-start;margin-top:8px;padding:3px 9px;border-radius:999px;background:var(--paper);font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--ink-mid)}
+.act-outcome{background:linear-gradient(135deg,var(--blue-deep),#0F172A);border:none;border-top:4px solid var(--coral);color:#fff;justify-content:center}
+.act-outcome-num{font-size:clamp(34px,3.8vw,48px);font-weight:700;line-height:1;color:#FBBF24}
+.act-outcome-t{font-size:clamp(12.5px,1.15vw,14.5px);font-weight:700;margin:4px 0 6px}
+.act-outcome-d{font-size:clamp(11px,1vw,12.5px);font-weight:500;line-height:1.4;color:rgba(255,255,255,.85)}
+.act-info{flex-shrink:0;background:var(--gold-pale);border-left:4px solid var(--gold);border-radius:10px;padding:11px 18px;font-size:clamp(12px,1.1vw,14px);font-weight:600;color:var(--gold-deep);line-height:1.45;transition:transform .2s}
+.act-info.lit{transform:scale(1.01)}
+.scene.active .act{animation:rise .6s ease both}
+.scene.active .act:nth-child(2){animation-delay:.1s}.scene.active .act:nth-child(3){animation-delay:.2s}.scene.active .act:nth-child(4){animation-delay:.3s}.scene.active .act:nth-child(5){animation-delay:.4s}.scene.active .act:nth-child(6){animation-delay:.5s}.scene.active .act:nth-child(7){animation-delay:.6s}.scene.active .act:nth-child(8){animation-delay:.9s}
+/* ===== RECOVERY STEPS ===== */
+.recov-step{display:flex;gap:11px;align-items:flex-start;padding:7px 0;border-top:1px dashed var(--border)}
+.recov-step:first-of-type{border-top:none}
+.recov-n{width:24px;height:24px;border-radius:50%;background:var(--coral-pale);color:var(--coral-deep);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.recov-step b{display:block;font-size:clamp(12px,1.1vw,14px);font-weight:700;color:var(--ink)}
+.recov-step small{display:block;font-size:clamp(11px,1vw,12.5px);font-weight:500;color:var(--ink-soft);line-height:1.4}
+/* ===== PLAN AND PROPOSE ===== */
+.plan-card{border-left:4px solid var(--blue)}
+.propose-card{border-left:4px solid var(--teal);background:linear-gradient(180deg,#fff,var(--teal-pale))}
+.propose-card .chain-head .ico{color:var(--teal-deep)}
+.propose-lead{font-size:clamp(12.5px,1.15vw,14.5px);font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:10px}
+.propose-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;flex:1}
+.pg-item{background:var(--surface);border:1px solid rgba(13,148,136,.25);border-radius:10px;padding:9px 12px}
+.pg-item b{display:block;font-size:clamp(12px,1.08vw,13.5px);font-weight:700;color:var(--teal-deep);margin-bottom:2px}
+.pg-item small{display:block;font-size:clamp(10.5px,.98vw,12px);font-weight:500;color:var(--ink-soft);line-height:1.38}
+.propose-foot{margin-top:10px;font-size:clamp(12px,1.1vw,14px);font-weight:700;font-style:italic;color:var(--teal-deep)}
+.scene.active .pg-item{animation:rise .6s ease both}.scene.active .pg-item:nth-child(2){animation-delay:.12s}.scene.active .pg-item:nth-child(3){animation-delay:.24s}.scene.active .pg-item:nth-child(4){animation-delay:.36s}
+/* ===== AD HOC ===== */
+.adhoc-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:14px;flex:0 1 auto;min-height:0;align-items:stretch}
+.adhoc-chart{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;gap:10px;align-self:stretch}
+.ah-bar{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:10px}
+.ah-label{font-size:clamp(11.5px,1.05vw,13px);font-weight:700;color:var(--ink)}
+.ah-track{height:26px;border-radius:999px;background:var(--paper);border:1px solid var(--border);overflow:hidden}
+.ah-fill{height:100%;border-radius:999px;width:0;transition:width 1.1s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-size:12px;font-weight:700}
+.ah-bar[data-c=green] .ah-fill{background:var(--green)}.ah-bar[data-c=blue] .ah-fill{background:var(--blue)}.ah-bar[data-c=gold] .ah-fill{background:var(--gold)}.ah-bar[data-c=violet] .ah-fill{background:var(--violet)}
+.ah-total{margin-top:8px;padding-top:10px;border-top:1px dashed var(--border);display:flex;align-items:baseline;gap:10px}
+.ah-total .num{font-size:clamp(30px,3.4vw,42px);font-weight:700;color:var(--ink);line-height:1}
+.ah-total small{font-size:clamp(11px,1vw,12.5px);font-weight:600;color:var(--ink-mid);line-height:1.35}
+.adhoc-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0;align-content:start}
+.ah-col{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;align-self:start}
+.ah-col[data-c=green]{border-top-color:var(--green)}.ah-col[data-c=gold]{border-top-color:var(--gold)}.ah-col[data-c=violet]{border-top-color:var(--violet)}
+.ah-col-h{width:100%;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--ink-mid);margin-bottom:2px}
+.ah-col[data-c=green] .ah-col-h{color:var(--green-deep)}.ah-col[data-c=blue] .ah-col-h{color:var(--blue-deep)}.ah-col[data-c=gold] .ah-col-h{color:var(--gold-deep)}.ah-col[data-c=violet] .ah-col-h{color:var(--violet-deep)}
+.chip{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--border);font-size:clamp(10.5px,.98vw,12px);font-weight:600;color:var(--ink);line-height:1.25;transition:transform .15s}
+.chip:hover{transform:translateY(-2px)}
+.ah-col[data-c=green] .chip{background:var(--green-pale);border-color:rgba(22,163,74,.25)}.ah-col[data-c=blue] .chip{background:var(--blue-pale);border-color:rgba(37,99,235,.25)}.ah-col[data-c=gold] .chip{background:var(--gold-pale);border-color:rgba(217,119,6,.3)}.ah-col[data-c=violet] .chip{background:var(--violet-pale);border-color:rgba(124,58,237,.25)}
+.scene.active .ah-col{animation:rise .6s ease both}.scene.active .ah-col:nth-child(2){animation-delay:.12s}.scene.active .ah-col:nth-child(3){animation-delay:.24s}.scene.active .ah-col:nth-child(4){animation-delay:.36s}
+body.print-mode .ah-fill{transition:none}
+.scene[data-scene="3"] .content-area,.scene[data-scene="4"] .content-area{justify-content:flex-start;padding-top:8px;gap:10px}.scene[data-scene="5"] .content-area{justify-content:center;gap:12px}
+@media (max-height:800px){.scene[data-scene="3"] .lead,.scene[data-scene="4"] .lead,.scene[data-scene="5"] .lead,.scene[data-scene="6"] .lead{display:none}.act{padding:9px 12px 8px}.act-d{font-size:11px}.act-tag{margin-top:5px}.recov-step{padding:5px 0}.pg-item{padding:7px 10px}.chip{padding:4px 8px;font-size:10.5px}.ah-track{height:22px}}
 .scene[data-scene="2"] .content-area{gap:9px;padding-top:8px;justify-content:flex-start}
 .scene[data-scene="2"] .stat-card{padding:9px 14px}
 .scene[data-scene="2"] .stat-num{font-size:clamp(22px,2.5vw,32px);margin-bottom:4px}
@@ -702,7 +808,7 @@ body.print-mode .slip-fill{transition:none}
 .scene[data-scene="2"] .card{padding:12px 16px}
 .scene[data-scene="3"] .content-area{gap:9px;justify-content:flex-start;padding-top:8px}
 .scene[data-scene="3"] .commit-card{padding:12px 16px}
-@media (max-height:800px){.scene[data-scene="2"] .cov-hint,.scene[data-scene="2"] .cov-ticks{display:none}.scene[data-scene="2"] .lead,.scene[data-scene="3"] .lead{display:none}.scene[data-scene="2"] .chain-row-compact .chain-node{padding:6px 5px}.scene[data-scene="2"] .cause-v,.scene[data-scene="2"] .remedy-d{font-size:11px;line-height:1.3}.scene[data-scene="2"] .remedy,.scene[data-scene="2"] .chain-card .cause-item{padding:5px 0}.scene[data-scene="2"] .remedy-foot{padding:7px 12px;font-size:11px}.scene[data-scene="2"] .stat-card{padding:7px 12px}.scene[data-scene="2"] .stat-num{font-size:22px;margin-bottom:2px}.scene[data-scene="3"] .commit-body{font-size:11.5px;line-height:1.35}.scene[data-scene="3"] .slip{padding:8px 16px 12px}.scene[data-scene="3"] .content-area{gap:7px}}
+@media (max-height:800px){.scene[data-scene="2"] .cov-hint,.scene[data-scene="2"] .cov-ticks{display:none}.scene[data-scene="2"] .lead,.scene[data-scene="3"] .lead{display:none}.scene[data-scene="2"] .chain-row-compact .chain-node{padding:6px 5px}.scene[data-scene="2"] .cause-v,.scene[data-scene="2"] .remedy-d{font-size:11px;line-height:1.3}.scene[data-scene="2"] .remedy,.scene[data-scene="2"] .chain-card .cause-item{padding:5px 0}.scene[data-scene="2"] .remedy-foot{padding:7px 12px;font-size:11px}.scene[data-scene="2"] .stat-card{padding:7px 12px}.scene[data-scene="2"] .stat-num{font-size:22px;margin-bottom:2px}.scene[data-scene="3"] .commit-body{font-size:11.5px;line-height:1.35}.scene[data-scene="3"] .slip{padding:8px 16px 12px}.scene[data-scene="3"] .content-area{gap:7px}.scene[data-scene="6"] .content-area{gap:6px}.scene[data-scene="6"] .commit-card{padding:10px 14px}.scene[data-scene="6"] .reflection{padding:9px 16px}}
 
 .map-rows-tight{gap:7px}
 .map-rows-tight .map-row{padding:8px 14px}
@@ -742,111 +848,58 @@ body.print-mode .slip-fill{transition:none}
 
 <main id="main">
 
-<!-- SCENE 1 OF 7: COVER -->
+<!-- SCENE 1: COVER -->
 <section class="scene" data-scene="0">
   <div class="cover-top">
     <div class="eyebrow">RRTS &times; Prowesstics &middot; Data Modernisation Pod</div>
     <h1 class="cover-h1">Coffee Meet <span class="accent">&middot; No. 04</span></h1>
     <div class="cover-date">15 September 2026</div>
-    <p class="cover-strap">What we delivered. What is holding the pod back. What we propose.<br>Where we go from here, together.</p>
+    <p class="cover-strap">Where we came from. What happened, what it cost, and what we did about it.<br>What we propose, and where it goes from here.</p>
   </div>
   <div class="cover-pulse" aria-hidden="true"><svg viewBox="0 0 1000 26"><path class="ecg-line" id="ecg-path" pathLength="1" fill="none" d="M0,13 L165,13 L171,13 L175,4 L181,22 L187,13 L200,13 L365,13 L371,13 L375,4 L381,22 L387,13 L400,13 L565,13 L571,13 L575,4 L581,22 L587,13 L600,13 L765,13 L771,13 L775,4 L781,22 L787,13 L800,13 L965,13 L971,13 L975,4 L981,22 L987,13 L1000,13"/><circle class="ecg-bead" r="2.6"><animateMotion dur="7.5s" repeatCount="indefinite" calcMode="linear"><mpath href="#ecg-path"/></animateMotion></circle></svg></div>
   <div class="cover-agenda">
-    <div class="agenda-label">TONIGHT'S FLOW &middot; PAST, PRESENT, FUTURE</div>
+    <div class="agenda-label">TONIGHT'S FLOW &middot; ONE STORY, IN ORDER</div>
     <div class="agenda-grid agenda-grid-5">
-      <div class="agenda-card" data-c="green" onclick="go(1)">
-        <div class="agenda-num">01 &middot; PAST</div>
-        <div class="agenda-name">Delivered and closed</div>
-        <div class="agenda-brief">Sales Model live. Automation and error capture proven. Both priorities sustained.</div>
-      </div>
-      <div class="agenda-card" data-c="coral" onclick="go(2)">
-        <div class="agenda-num">02 &middot; PRESENT</div>
-        <div class="agenda-name">Server health</div>
-        <div class="agenda-brief">Line Haul job failures, the 5 to 10 PM CT window, and why recovery waits until morning.</div>
-      </div>
-      <div class="agenda-card" data-c="gold" onclick="go(3)">
-        <div class="agenda-num">03 &middot; PRESENT</div>
-        <div class="agenda-name">Delivery reality</div>
-        <div class="agenda-brief">Where the timeline stands, what consumed it, and how we recover it.</div>
-      </div>
-      <div class="agenda-card" data-c="blue" onclick="go(4)">
-        <div class="agenda-num">04 &middot; PROPOSALS</div>
-        <div class="agenda-name">Three moves</div>
-        <div class="agenda-brief">Offshore DBA cover. QA as a standing role. Data science and AI talent.</div>
-      </div>
-      <div class="agenda-card" data-c="teal" onclick="go(5)">
-        <div class="agenda-num">05 &middot; FUTURE</div>
-        <div class="agenda-name">The road ahead</div>
-        <div class="agenda-brief">Stabilise, recover, expand. AI-ready by year end.</div>
-      </div>
+      <div class="agenda-card" data-c="green" onclick="go(1)"><div class="agenda-num">01 &middot; WHERE WE CAME FROM</div><div class="agenda-name">January to August</div><div class="agenda-brief">Every commitment closed. Then September.</div></div>
+      <div class="agenda-card" data-c="coral" onclick="go(2)"><div class="agenda-num">02 &middot; WHAT HAPPENED</div><div class="agenda-name">The outages and their cost</div><div class="agenda-brief">Five failures, fourteen unplanned tasks, thirty days.</div></div>
+      <div class="agenda-card" data-c="gold" onclick="go(4)"><div class="agenda-num">03 &middot; WHAT WE DID</div><div class="agenda-name">Seven actions, one finding</div><div class="agenda-brief">Root cause analysis and what it taught us.</div></div>
+      <div class="agenda-card" data-c="blue" onclick="go(6)"><div class="agenda-num">04 &middot; WHAT WE PROPOSE</div><div class="agenda-name">Close the gap</div><div class="agenda-brief">Database SME cover. QA. Data science. A prioritisation gate.</div></div>
+      <div class="agenda-card" data-c="teal" onclick="go(8)"><div class="agenda-num">05 &middot; WHERE IT GOES</div><div class="agenda-name">30, 60, 90 days</div><div class="agenda-brief">Stabilise, recover, expand.</div></div>
     </div>
   </div>
   <div class="cover-attendees">
-    <div class="att-card">
-      <div class="att-label">FROM PROWESSTICS</div>
-      <div class="att-names">Herwin &middot; Pandu &middot; Berwin &middot; Harish</div>
-    </div>
-    <div class="att-card">
-      <div class="att-label">FROM RRTS</div>
-      <div class="att-names">Andrew Drumm &middot; RRTS Leadership Team</div>
-    </div>
+    <div class="att-card"><div class="att-label">FROM PROWESSTICS</div><div class="att-names">Herwin &middot; Pandu &middot; Berwin &middot; Harish</div></div>
+    <div class="att-card"><div class="att-label">FROM RRTS</div><div class="att-names">Andrew Drumm &middot; RRTS Leadership Team</div></div>
   </div>
 </section>
 
-<!-- SCENE 2 OF 7: PAST, DELIVERED AND CLOSED -->
+<!-- SCENE 2: WHERE WE CAME FROM -->
 <section class="scene" data-scene="1">
-  <div class="eyebrow">Past &middot; Delivered and closed</div>
-  <h2>What we heard, owned, and delivered</h2>
-  <p class="lead">Every item from May and from Coffee Meet No. 03 is closed. Some are closed and done; some are closed and now exercised on every release, because quality control is not a one-time deliverable. Nothing from the past is open.</p>
+  <div class="eyebrow">01 &middot; Where we came from &middot; January to August</div>
+  <h2>Eight months, every commitment closed</h2>
+  <p class="lead">The pod landed in January, rebuilt the heavy lifts by April, took your two priorities on board in May, and shipped through August. Nothing from this period is open.</p>
   <div class="content-area">
-    <div class="map-panel map-panel-green">
-      <div class="map-head">
-        <span class="tag coral">HEARD AND COMMITTED</span>
-        <span class="map-arrow">&rarr;</span>
-        <span class="tag green">ACCOMPLISHED AND CLOSED</span>
-      </div>
-      <div class="map-rows map-rows-tight">
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Project planning</div><div class="map-input-quote">May feedback: no structure, no governance, no targeted timeline</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Milestone governance, daily updates, weekly and month-end timesheets<span class="map-mode practice">IN CONTINUOUS PRACTICE</span></div>
-        </div>
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Business language</div><div class="map-input-quote">May feedback: speak our domain, understand our operations</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Domain context in standups, reviews, test cases and reports<span class="map-mode practice">IN CONTINUOUS PRACTICE</span></div>
-        </div>
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Sales Model Report</div><div class="map-input-quote">Coffee Meet 03: push to production</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Live in production for RRTS users<span class="map-mode done">CLOSED</span></div>
-        </div>
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Automated web testing</div><div class="map-input-quote">Coffee Meet 03: Selenium with Python</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Suite built, errors rooted out, re-run on every release<span class="map-mode practice">CLOSED &middot; EXERCISED EACH RELEASE</span></div>
-        </div>
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Error capture and routing</div><div class="map-input-quote">Coffee Meet 03: errors with screenshots to the designated user</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Every error captured and routed same day<span class="map-mode practice">CLOSED &middot; EXERCISED EACH RELEASE</span></div>
-        </div>
-        <div class="map-row">
-          <div class="map-input"><div class="map-input-name">Line Haul migration</div><div class="map-input-quote">Coffee Meet 03: initiate migration to the modern stack</div></div>
-          <div class="map-line"></div>
-          <div class="map-status"><span class="map-badge live"><svg class="ico"><use href="#i-check"/></svg></span>Migration initiated as committed. Current build: Yield Management Report<span class="map-mode done">COMMITMENT CLOSED</span></div>
-        </div>
+    <div class="tl-strip">
+      <div class="tl-stage" data-c="blue"><div class="tl-dot"><svg class="ico"><use href="#i-rocket"/></svg></div><div class="tl-when">JANUARY</div><div class="tl-title">The pod lands</div><div class="tl-body">Four engineers pick up the codebase, audit SAFX reporting and take the keys.</div></div>
+      <div class="tl-stage" data-c="blue"><div class="tl-dot"><svg class="ico"><use href="#i-tool"/></svg></div><div class="tl-when">FEBRUARY TO APRIL</div><div class="tl-title">The heavy lifts</div><div class="tl-body">6,000-line legacy procedure modernised into clean ETL. SAFX on Power BI, 2 minutes down to under 10 seconds. Pandu takes over delivery governance.</div></div>
+      <div class="tl-stage" data-c="gold"><div class="tl-dot"><svg class="ico"><use href="#i-headphones"/></svg></div><div class="tl-when">MAY</div><div class="tl-title">Your two priorities</div><div class="tl-body">Project planning and business language. Milestone governance, daily updates, weekly and month-end timesheets, domain context in every review. In continuous practice since.</div></div>
+      <div class="tl-stage" data-c="green"><div class="tl-dot"><svg class="ico"><use href="#i-check-circle"/></svg></div><div class="tl-when">JUNE TO AUGUST</div><div class="tl-title">Production ships</div><div class="tl-body">Pipelines 3 hours to 1 hour 20. Power BI and Fabric live. Sales Model Report in production. Selenium with Python automation, errors captured and routed, exercised on every release. Line Haul migration initiated; Yield Management Report is the active build.</div></div>
+    </div>
+    <div class="map-panel map-panel-green tl-closed">
+      <div class="map-head"><span class="tag green">ACCOMPLISHED AND CLOSED</span></div>
+      <div class="closed-chips">
+        <span class="cchip">Project planning <b>in practice</b></span><span class="cchip">Business language <b>in practice</b></span><span class="cchip">Sales Model Report <b>live</b></span><span class="cchip">Automated web testing <b>each release</b></span><span class="cchip">Error capture and routing <b>each release</b></span><span class="cchip">Line Haul migration <b>initiated</b></span>
       </div>
     </div>
-    <div class="reflection"><p>Quality control is inevitable and unavoidable on a modernisation programme, so the testing and error-routing layers stay in daily use. Everything else is banked. From here the conversation moves to the present: server health and the delivery timeline.</p></div>
+    <div class="reflection hand"><p>And then September. The next scene is what happened.</p></div>
   </div>
 </section>
 
 <!-- SCENE 3 OF 7: PRESENT, SERVER HEALTH -->
 <section class="scene" data-scene="2">
-  <div class="eyebrow">Present &middot; Challenge one</div>
-  <h2>Server health is the single biggest risk to delivery</h2>
-  <p class="lead">Tomasz has already asked for this to be fixed. We want to be the team that fixes it. Here is what the outages look like, what is causing them, and why they take so long to recover.</p>
+  <div class="eyebrow">02 &middot; What happened &middot; The server</div>
+  <h2>Five failures in eleven days, all in the same window</h2>
+  <p class="lead">Tomasz has asked for this to be fixed and we want to be the team that fixes it. This is what the outages looked like, and why each one took so long to recover.</p>
   <div class="content-area">
     <div class="grid-4 stat-grid">
       <div class="card stat-card" data-c="coral">
@@ -870,6 +923,85 @@ body.print-mode .slip-fill{transition:none}
         <div class="stat-sub">Identify, clear, kill, restart</div>
       </div>
     </div>
+    <div class="grid-2 diag-grid">
+      <div class="card chain-card">
+        <div class="chain-head"><svg class="ico"><use href="#i-alert-triangle"/></svg>The chain reaction, and where it sits</div>
+        <div class="chain-row chain-row-compact"><span class="chain-node coral">Log space fills<br><small>5 to 10 PM CT</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node coral">Line Haul job fails<br><small>most critical job</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Sales job fails<br><small>dependent</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Scheduled jobs and SSIS refreshes fail<br><small>chain reaction</small></span></div>
+        <div class="cause-item"><span class="cause-k">Three suspects</span><span class="cause-v">Long-running queries in the window, parallel job schedules competing for the same server, and high memory occupation. First failure on 13 August, the day after the 12 August production push.</span></div>
+        <div class="cause-item"><span class="cause-k">Where it sits</span><span class="cause-v">On the shared legacy estate both BI tracks depend on. The modernisation stack is stable, but every outage blocks both.</span></div>
+              </div>
+      <div class="card cause-card">
+        <div class="chain-head"><svg class="ico"><use href="#i-refresh"/></svg>What a recovery costs today</div>
+        <div class="recov-step"><span class="recov-n">1</span><div><b>Failure inside the window</b><small>Log space fills, Line Haul job stops, dependants stop behind it.</small></div></div>
+        <div class="recov-step"><span class="recov-n">2</span><div><b>Wait for DBA rights</b><small>Killing a blocking session, restarting a job or extending log space needs rights the pod does not hold. Earliest intervention is the next morning.</small></div></div>
+        <div class="recov-step"><span class="recov-n">3</span><div><b>Rerun, re-validate, catch up</b><small>Every dependant job is re-run and checked. Users see stale data until the chain completes.</small></div></div>
+        <div class="recov-step"><span class="recov-n">4</span><div><b>Log space diagnosis</b><small>Identifying and clearing the space that filled can take up to a week, with the next failure possible before it finishes.</small></div></div>
+        <div class="remedy-foot">Every failure was recovered. Every recovery cost time the pod did not have. The next scene is where that time came from.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 4: WHAT IT COST -->
+<section class="scene" data-scene="3">
+  <div class="eyebrow">02 &middot; What happened &middot; The roadmap</div>
+  <h2>What it cost: fourteen unplanned tasks and thirty days</h2>
+  <p class="lead">Every task below sits in the timesheets you already receive. None were in the modernisation plan. All were done. The slip is the sum.</p>
+  <div class="content-area">
+    <div class="adhoc-wrap">
+      <div class="adhoc-chart" id="adhoc-chart">
+        <div class="ah-bar" data-c="green"><span class="ah-label">Delivered</span><div class="ah-track"><div class="ah-fill" data-w="100"><span class="num" data-to="5">5</span></div></div></div>
+        <div class="ah-bar" data-c="blue"><span class="ah-label">Production</span><div class="ah-track"><div class="ah-fill" data-w="80"><span class="num" data-to="4">4</span></div></div></div>
+        <div class="ah-bar" data-c="gold"><span class="ah-label">Additional</span><div class="ah-track"><div class="ah-fill" data-w="60"><span class="num" data-to="3">3</span></div></div></div>
+        <div class="ah-bar" data-c="violet"><span class="ah-label">Proof of concept</span><div class="ah-track"><div class="ah-fill" data-w="40"><span class="num" data-to="2">2</span></div></div></div>
+        <div class="ah-total"><span class="num" data-to="14">14</span><small>unplanned tasks, each one logged, each one done</small></div>
+      </div>
+      <div class="adhoc-cols">
+        <div class="ah-col" data-c="green"><div class="ah-col-h">Delivered</div><span class="chip">Automated script monitoring of reports</span><span class="chip">Spot Quotes</span><span class="chip">Sales Trend Report</span><span class="chip">Consolidated Report</span><span class="chip">CIS changes in the YM legacy report</span></div>
+        <div class="ah-col" data-c="blue"><div class="ah-col-h">Production</div><span class="chip">Production switchover to the new SQL Server</span><span class="chip">Line Haul failure analysis, four separate incidents</span></div>
+        <div class="ah-col" data-c="gold"><div class="ah-col-h">Additional</div><span class="chip">BOL parsing</span><span class="chip">Loading Compliance Report with managed identity</span><span class="chip">Grow Dashboard changes and clarifications</span></div>
+        <div class="ah-col" data-c="violet"><div class="ah-col-h">Proof of concept</div><span class="chip">Airflow and SQL Server Jobs, SQL Server through to Power BI</span><span class="chip">Consolidated Report from SSAS and Lakehouse</span></div>
+      </div>
+    </div>
+    <div class="slip" id="slip">
+      <div class="slip-head"><span class="slip-title">Delivery slip on the Yield Management Report, as reported to you</span><span class="slip-legend"><i style="background:var(--gold)"></i>Coffee Meet 03 <i style="background:var(--coral)"></i>Tonight</span></div>
+      <div class="slip-track">
+        <div class="slip-fill slip-aug" data-w="37.5"><span>15 days</span></div>
+        <div class="slip-fill slip-sep" data-w="75"><span>30 days</span></div>
+        <div class="slip-mark" style="left:0"><b>On plan</b></div>
+        <div class="slip-mark" style="left:100%"><b>Recovery target, 60 days</b></div>
+      </div>
+    </div>
+    <div class="reflection hand"><p>Two engineers were added to the Line Haul model. Unplanned work and outage recovery absorbed them. So we acted on the server itself.</p></div>
+  </div>
+</section>
+
+<!-- SCENE 4: SERVER, WHAT WE HAVE DONE -->
+<section class="scene" data-scene="4">
+  <div class="eyebrow">03 &middot; What we did &middot; Root cause analysis so far</div>
+  <h2>Root cause analysis: seven hypotheses tested, seven eliminated</h2>
+  <p class="lead">None of these were in scope. All were done, tested and documented by the pod between the failures, without DBA rights. Click any block for the reasoning behind it.</p>
+  <div class="content-area">
+    <div class="act-grid">
+      <div class="act" data-c="coral" onclick="actInfo(0)"><span class="act-n">1</span><span class="act-ic"><svg class="ico"><use href="#i-refresh"/></svg></span><div class="act-t">Prolane table population rolled back</div><div class="act-d">Load into the modernisation environment reversed to take pressure off the shared server.</div><span class="act-tag">ROLLBACK</span></div>
+      <div class="act" data-c="gold" onclick="actInfo(1)"><span class="act-n">2</span><span class="act-ic"><svg class="ico"><use href="#i-calendar"/></svg></span><div class="act-t">Spot Quotes modified and rescheduled</div><div class="act-d">Query reworked and moved so it no longer competes inside the peak window.</div><span class="act-tag">RESCHEDULE</span></div>
+      <div class="act" data-c="blue" onclick="actInfo(2)"><span class="act-n">3</span><span class="act-ic"><svg class="ico"><use href="#i-server"/></svg></span><div class="act-t">Disk space added for the transaction log</div><div class="act-d">Headroom given to the log that fills during the 5 to 10 PM CT window.</div><span class="act-tag">CAPACITY</span></div>
+      <div class="act" data-c="violet" onclick="actInfo(3)"><span class="act-n">4</span><span class="act-ic"><svg class="ico"><use href="#i-layers"/></svg></span><div class="act-t">7:30 PM Line Haul schedule removed</div><div class="act-d">Analysis showed it regularly skipped the 11:30 PM run. Duplicate schedule retired.</div><span class="act-tag">SCHEDULE</span></div>
+      <div class="act" data-c="teal" onclick="actInfo(4)"><span class="act-n">5</span><span class="act-ic"><svg class="ico"><use href="#i-rocket"/></svg></span><div class="act-t">Gateway upgraded</div><div class="act-d">Copy command now works, giving faster runtimes and shorter time inside the window.</div><span class="act-tag">UPGRADE</span></div>
+      <div class="act" data-c="green" onclick="actInfo(5)"><span class="act-n">6</span><span class="act-ic"><svg class="ico"><use href="#i-git-branch"/></svg></span><div class="act-t">Sales job disabled in dev workspace</div><div class="act-d">Non-production load removed from the server during peak hours.</div><span class="act-tag">LOAD</span></div>
+      <div class="act" data-c="coral" onclick="actInfo(6)"><span class="act-n">7</span><span class="act-ic"><svg class="ico"><use href="#i-box"/></svg></span><div class="act-t">Rubrik backup job disabled and environment tested</div><div class="act-d">Backup contention ruled in or out with a controlled test.</div><span class="act-tag">ISOLATION</span></div>
+      <div class="act act-outcome" onclick="actInfo(7)"><div class="act-outcome-num"><span class="num" data-to="7">7</span></div><div class="act-outcome-t">actions taken, outcome unchanged</div><div class="act-outcome-d">The failures continued. Each action removed a suspect; none isolated the root cause. That is the honest position.</div></div>
+    </div>
+    <div class="act-info" id="act-info">Seven suspects out, root cause still in. What the seven actions did tell us is on the next scene.</div>
+  </div>
+</section>
+
+<!-- SCENE 6: WHAT WE LEARNED -->
+<section class="scene" data-scene="5">
+  <div class="eyebrow">03 &middot; What we did &middot; The finding</div>
+  <h2>What seven actions taught us: it is a coverage gap</h2>
+  <p class="lead">Capacity was added and the failures continued, so the cause is consumption inside the window, not disk. And every failure happened in hours that no one is on shift to see.</p>
+  <div class="content-area">
     <div class="cov-strip" id="cov-strip">
       <div class="cov-head">
         <div class="cov-title"><svg class="ico"><use href="#i-eye"/></svg>24-hour DBA coverage, Central Time <span class="cov-hint">Toggle to see what a database SME on shift changes</span></div>
@@ -887,150 +1019,96 @@ body.print-mode .slip-fill{transition:none}
       <div class="cov-ticks"><span>12 AM</span><span>3</span><span>6</span><span>9</span><span>12 PM</span><span>3</span><span>6</span><span>9</span><span>12 AM</span></div>
       <div class="cov-out" id="cov-out">Failure at 6 PM waits 13 hours for the first intervention.</div>
     </div>
-    <div class="grid-2 diag-grid">
-      <div class="card chain-card">
-        <div class="chain-head"><svg class="ico"><use href="#i-alert-triangle"/></svg>What the pod has diagnosed</div>
-        <div class="chain-row chain-row-compact"><span class="chain-node coral">Log space fills<br><small>5 to 10 PM CT</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node coral">Line Haul job fails<br><small>most critical job</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Sales job fails<br><small>dependent</small></span><span class="chain-arrow">&rarr;</span><span class="chain-node gold">Scheduled jobs and SSIS refreshes fail<br><small>chain reaction</small></span></div>
-        <div class="cause-item"><span class="cause-k">Three suspects</span><span class="cause-v">Long-running queries in the window, parallel job schedules competing for the same server, and high memory occupation. First failure on 13 August, the day after the 12 August production push.</span></div>
-        <div class="cause-item"><span class="cause-k">Where it sits</span><span class="cause-v">On the shared legacy estate both BI tracks depend on. The modernisation stack is stable, but every outage blocks both.</span></div>
-        <div class="cause-item"><span class="cause-k">Why recovery is slow</span><span class="cause-v">Killing a blocking session, restarting a job or extending log space needs DBA rights the pod does not hold. DBA coverage is one person on a day shift; the failures are after hours. The gap is the coverage model, not any individual.</span></div>
+    <div class="grid-3">
+      <div class="card learn-card" data-c="coral"><div class="learn-k">FINDING ONE</div><div class="learn-t">Consumption, not capacity</div><div class="learn-d">Disk was added to the transaction log and the failures continued. Something inside the window is consuming log space faster than any headroom can absorb. Long-running queries, parallel schedules and memory pressure remain the three suspects.</div></div>
+      <div class="card learn-card" data-c="gold"><div class="learn-k">FINDING TWO</div><div class="learn-t">Timing is the pattern</div><div class="learn-d">Every failure sits between 5 and 10 PM CT, after the day shift and before the morning. The first failure landed the day after the last production push, so that push is under line-by-line review.</div></div>
+      <div class="card learn-card" data-c="blue"><div class="learn-k">FINDING THREE</div><div class="learn-t">Rights and reach</div><div class="learn-d">Clearing a blocking session, restarting a job or reading wait and lock statistics needs DBA rights the pod does not hold. From the outside, root cause is slow and uncertain. From the inside, it is a specialist's routine.</div></div>
+    </div>
+    <div class="reflection hand"><p>One person on a day shift cannot see a 6 PM failure, and nobody should have to. That is the gap. The next scene closes it.</p></div>
+  </div>
+</section>
+
+<!-- SCENE 5: SERVER, WHAT WE PLAN AND PROPOSE -->
+<section class="scene" data-scene="6">
+  <div class="eyebrow">04 &middot; What we propose &middot; The server</div>
+  <h2>A database SME alongside your DBA, and three steps beside it</h2>
+  <p class="lead">Not a replacement for anyone at RRTS. Assistance in the hours no single person can cover, with the pod continuing on the engineering side.</p>
+  <div class="content-area">
+    <div class="grid-2 plan-grid">
+      <div class="card propose-card">
+        <div class="chain-head"><svg class="ico"><use href="#i-headphones"/></svg>The proposal &middot; a database SME alongside your DBA</div>
+        <div class="propose-lead">A dedicated SQL Server subject matter expert from the Chennai ODC, on shift through the 5 to 10 PM CT window and overnight, working with your in-house DBA rather than around him.</div>
+        <div class="propose-grid">
+          <div class="pg-item"><b>Evening cover</b><small>On shift when the failures happen. Blocking sessions killed and jobs restarted on the spot.</small></div>
+          <div class="pg-item"><b>Morning hand-off</b><small>Your DBA starts the day with a clean server and a written note of what happened overnight.</small></div>
+          <div class="pg-item"><b>Root cause, from the inside</b><small>Log, wait and memory diagnostics that only a DBA can run, shared as findings, not tickets.</small></div>
+          <div class="pg-item"><b>Zero unplanned outages</b><small>The target for the window, measured and reported at every coffee meet.</small></div>
+        </div>
+        <div class="propose-foot">Assistance, not replacement. One person covering a 24-hour server is not a fair ask of anyone. Two shifts, one server, one team.</div>
       </div>
-      <div class="card cause-card">
-        <div class="chain-head"><svg class="ico"><use href="#i-tool"/></svg>Three remedies already in motion</div>
-        <div class="remedy"><span class="remedy-n">1</span><div><div class="remedy-t">Window analysis, 5 to 10 PM CT</div><div class="remedy-d">Log and pointer analysis of every job in the window. Long-running queries, dependency chains and memory traces captured and shared with RRTS.</div></div></div>
-        <div class="remedy"><span class="remedy-n">2</span><div><div class="remedy-t">Review of the latest production push</div><div class="remedy-d">The 12 August deployment is being checked line by line for the query changes that first tripped the Line Haul job on 13 August.</div></div></div>
-        <div class="remedy"><span class="remedy-n">3</span><div><div class="remedy-t">Reschedule out of the peak window</div><div class="remedy-d">The 6 PM dev job moves out of the 5 to 10 PM CT window, and alerting is added on server health so a failure is seen the moment it happens.</div></div></div>
-        <div class="remedy-foot">These three sit within the pod's engineering expertise and will reduce failures. Seamless, zero-outage operations need a database SME on shift in the window. That is proposal one on scene 05.</div>
+      <div class="card plan-card">
+        <div class="chain-head"><svg class="ico"><use href="#i-tool"/></svg>Three steps the pod takes beside it</div>
+        <div class="remedy"><span class="remedy-n">1</span><div><div class="remedy-t">Full analysis of the 5 to 10 PM CT window</div><div class="remedy-d">Log and pointer analysis of every job in the window. Long-running queries, dependency chains and memory traces captured and shared with your DBA.</div></div></div>
+        <div class="remedy"><span class="remedy-n">2</span><div><div class="remedy-t">Line-by-line review of the latest production push</div><div class="remedy-d">The first failure landed the day after the last deployment. Every query change in that push is being traced against the failing jobs.</div></div></div>
+        <div class="remedy"><span class="remedy-n">3</span><div><div class="remedy-t">Reschedule and alert</div><div class="remedy-d">Remaining dev jobs moved out of the peak window and server-health alerting added, so a failure is seen the moment it happens rather than the next morning.</div></div></div>
+        <div class="remedy-foot">These reduce failures. The SME is what turns them into zero-outage operations and a root cause found from the inside.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCENE 4 OF 7: PRESENT, DELIVERY REALITY -->
-<section class="scene" data-scene="3">
-  <div class="eyebrow">Present &middot; Challenge two</div>
-  <h2>Delivery reality: 30 days behind, and what consumed them</h2>
-  <p class="lead">Last month we reported 15 days. Today it is 30. We are not hiding it, and we can show exactly where the capacity went, week by week, from the timesheets you already receive.</p>
+<!-- SCENE 8: WHAT ELSE UNLOCKS THE POD -->
+<section class="scene" data-scene="7">
+  <div class="eyebrow">04 &middot; What we propose &middot; The pod</div>
+  <h2>Three more moves that protect the roadmap</h2>
+  <p class="lead">The server proposal stops the bleeding. These three keep the Yield Management Report on its recovered date and open the roles Andrew has asked about. Click any card to see what changes for RRTS.</p>
   <div class="content-area">
     <div class="grid-3">
-      <div class="card commit-card" data-c="coral">
-        <div class="commit-top"><div class="commit-num" style="color:var(--coral)">01</div><div class="commit-title">Ad hoc requests</div></div>
-        <div class="commit-body">Unplanned work landed on the pod alongside the roadmap, and it is all logged: daily updates, Friday weekly timesheets, month-end timesheets. Every hour on an ad hoc task is an hour taken from the Yield Management Report.</div>
-        <div class="commit-owner" style="background:var(--coral-pale);color:var(--coral-deep)">EVIDENCED IN TIMESHEETS</div>
-      </div>
-      <div class="card commit-card" data-c="gold">
-        <div class="commit-top"><div class="commit-num" style="color:var(--gold)">02</div><div class="commit-title">Server outages</div></div>
-        <div class="commit-body">Five Line Haul failures in eleven days. Each one costs a rerun, a re-validation, and a wait for DBA intervention. The two engineers added to Line Haul spent part of their capacity on recovery instead of migration.</div>
-        <div class="commit-owner" style="background:var(--gold-pale);color:var(--gold-deep)">31 AUG TO 10 SEP</div>
-      </div>
-      <div class="card commit-card" data-c="blue">
-        <div class="commit-top"><div class="commit-num" style="color:var(--blue)">03</div><div class="commit-title">No operations layer</div></div>
-        <div class="commit-body">There is no DevOps or DBA function on the RRTS side that the pod can hand operational issues to. Engineering absorbs operations, and the modernisation roadmap pays for it.</div>
-        <div class="commit-owner">STRUCTURAL, NOT EFFORT</div>
-      </div>
-    </div>
-    <div class="slip" id="slip">
-      <div class="slip-head"><span class="slip-title">Delivery slip, as reported to you</span><span class="slip-legend"><i style="background:var(--gold)"></i>Coffee Meet 03 <i style="background:var(--coral)"></i>Tonight</span></div>
-      <div class="slip-track">
-        <div class="slip-fill slip-aug" data-w="37.5"><span>15 days</span></div>
-        <div class="slip-fill slip-sep" data-w="75"><span>30 days</span></div>
-        <div class="slip-mark" style="left:0"><b>On plan</b></div>
-        <div class="slip-mark" style="left:100%"><b>Recovery target, 60 days</b></div>
-      </div>
-    </div>
-    <div class="flow-strip">
-      <div class="flow-rows">
-        <div class="flow-row">
-          <div class="flow-gap">Line Haul model &middot; Yield Management Report</div>
-          <div class="flow-line"></div>
-          <div class="flow-fix">Two engineers added. The Yield Management Report is the active build, moving the consolidated report and its stored-procedure logic to the modern stack. Not on the original date, for the three reasons above.</div>
-          <span class="flow-badge" style="background:var(--gold-pale);color:var(--gold-deep)"><svg class="ico"><use href="#i-refresh"/></svg></span>
-          <div class="flow-motion" style="color:var(--gold-deep)">RECOVERY PLAN, SCENE 06</div>
-        </div>
-        <div class="flow-row">
-          <div class="flow-gap">Ad hoc register</div>
-          <div class="flow-line"></div>
-          <div class="flow-fix">A single list of every ad hoc task since August, module by module, shared with Andrew so the delay is traceable, not asserted.</div>
-          <span class="flow-badge"><svg class="ico"><use href="#i-check"/></svg></span>
-          <div class="flow-motion">READY TO SHARE</div>
-        </div>
-      </div>
-    </div>
-    <div class="reflection"><p>What we ask in return: a joint prioritisation gate. Each new ad hoc request weighed against the Yield Management Report date before it enters the sprint, so the roadmap stays protected and the delay stops growing.</p></div>
-  </div>
-</section>
-
-<!-- SCENE 5 OF 7: PROPOSALS -->
-<section class="scene" data-scene="4">
-  <div class="eyebrow">Rectification &middot; Three moves</div>
-  <h2>Three moves that unlock the pod</h2>
-  <p class="lead">One fixes server health for good. One protects the quality we have already proven. One opens the roles Andrew has asked about. Click any card to see what changes for RRTS.</p>
-  <div class="content-area">
-    <div class="grid-3">
-      <div class="card commit-card prop-card" data-c="coral" data-p="0" onclick="pickProp(0)">
-        <div class="commit-top"><div class="commit-num" style="color:var(--coral)">01</div><div class="commit-title">Offshore DBA, covering the window that hurts</div></div>
-        <div class="commit-body">
-          A dedicated SQL Server DBA from Chennai, on shift through the 5 to 10 PM CT window and overnight. Daily hand-off with your DBA, so nothing waits for morning.
-          <ul class="mini-list">
-            <li>Transaction log monitoring and proactive clearance</li>
-            <li>Rights to kill blocking sessions and restart jobs on the spot</li>
-            <li>Alerting on long-running queries and dependency jobs</li>
-            <li>Target: zero unplanned outages in the window</li>
-          </ul>
-        </div>
-        <div class="commit-owner" style="background:var(--coral-pale);color:var(--coral-deep)">BUILD RESOURCE &middot; START ON APPROVAL</div>
-      </div>
-      <div class="card commit-card prop-card" data-c="violet" data-p="1" onclick="pickProp(1)">
-        <div class="commit-top"><div class="commit-num" style="color:var(--violet)">02</div><div class="commit-title">QA as a standing role in the pod</div></div>
-        <div class="commit-body">
-          The QA capacity we brought in this cycle is what made Selenium automation and error capture happen. It has proven vital to every release since.
-          <ul class="mini-list">
-            <li>Regression suite re-run on every production push</li>
-            <li>Errors captured with screenshots, routed same day</li>
-            <li>Frees the four engineers for the Yield Management Report</li>
-          </ul>
-          We suggest recognising QA as a named role from the next cycle, so that quality is a fixture rather than a favour.
-        </div>
+      <div class="card commit-card prop-card" data-c="violet" data-p="0" onclick="pickProp(0)">
+        <div class="commit-top"><div class="commit-num" style="color:var(--violet)">01</div><div class="commit-title">QA as a standing role in the pod</div></div>
+        <div class="commit-body">The QA capacity we brought in this cycle is what made Selenium automation and error capture happen. It has proven vital to every release since.
+          <ul class="mini-list"><li>Regression suite re-run on every production push</li><li>Errors captured with screenshots, routed same day</li><li>Frees the four engineers for the Yield Management Report</li></ul>
+          We suggest recognising QA as a named role from the next cycle, so that quality is a fixture rather than a favour.</div>
         <div class="commit-owner" style="background:var(--violet-pale);color:var(--violet-deep)">FOR YOUR CONSIDERATION</div>
+      </div>
+      <div class="card commit-card prop-card" data-c="gold" data-p="1" onclick="pickProp(1)">
+        <div class="commit-top"><div class="commit-num" style="color:var(--gold)">02</div><div class="commit-title">A prioritisation gate for unplanned work</div></div>
+        <div class="commit-body">Fourteen tasks arrived outside the plan and all were delivered. From here, each new request is weighed against the Yield Management Report date before it enters the sprint.
+          <ul class="mini-list"><li>Ad hoc register with hours per task, ready to share</li><li>Reviewed jointly at every coffee meet</li><li>The roadmap stays protected; the slip stops growing</li></ul></div>
+        <div class="commit-owner" style="background:var(--gold-pale);color:var(--gold-deep)">JOINT WORKING PRACTICE</div>
       </div>
       <div class="card commit-card prop-card" data-c="teal" data-p="2" onclick="pickProp(2)">
         <div class="commit-top"><div class="commit-num" style="color:var(--teal)">03</div><div class="commit-title">Data science and applied AI talent</div></div>
-        <div class="commit-body">
-          Andrew has shared two open requirements. We are ready to submit profiles, screened by our internal technical panel first.
-          <ul class="mini-list">
-            <li>Optimization and Operations Research</li>
-            <li>Applied AI Solution Development</li>
-            <li>Data Engineer and Data Scientist to scale pipelines and Power BI</li>
-          </ul>
-          Profiles within two weeks of a go-ahead, interviews at your pace.
-        </div>
+        <div class="commit-body">Andrew has shared two open requirements. We are ready to submit profiles, screened by our internal technical panel first.
+          <ul class="mini-list"><li>Optimization and Operations Research</li><li>Applied AI Solution Development</li><li>Data Engineer and Data Scientist to scale pipelines and Power BI</li></ul>
+          Profiles within two weeks of a go-ahead, interviews at your pace.</div>
         <div class="commit-owner" style="background:var(--teal-pale);color:var(--teal-deep)">PROFILES READY TO SUBMIT</div>
       </div>
     </div>
-    <div class="commit-footer" id="prop-footer">
-      <div class="commit-footer-text" id="prop-footer-text">The three remedies on scene 03 reduce failures. Only a database SME on shift in the 5 to 10 PM CT window assures seamless, zero-outage operations. Together they close the gap for good.</div>
-    </div>
+    <div class="commit-footer" id="prop-footer"><div class="commit-footer-text" id="prop-footer-text">Server cover, quality, focus, and talent. Together they take the pod from recovering to expanding, which is the next scene.</div></div>
   </div>
 </section>
 
-<!-- SCENE 6 OF 7: FUTURE, JOURNEY -->
-<section class="scene" data-scene="5">
-  <div class="eyebrow">Future &middot; January to year end</div>
-  <h2>Where we are in the journey, and where it goes</h2>
-  <p class="lead">Six stages. You are looking at stage 5. Click any stage to see where it sits.</p>
-  <div class="j-tabs" id="j-tabs"></div>
-  <div class="j-body" id="j-body"></div>
-  <div class="j-timeline">
-    <div class="j-tl-label">JOURNEY HEARTBEAT &middot; JAN TO YEAR END</div>
-    <div class="j-tl-track" id="j-tl-track"></div>
+<!-- SCENE 9: WHERE IT GOES -->
+<section class="scene" data-scene="8">
+  <div class="eyebrow">05 &middot; Where it goes &middot; October to December</div>
+  <h2>Thirty, sixty, ninety days</h2>
+  <p class="lead">Stabilise, recover, expand. Each milestone is measured and reported at the following coffee meet.</p>
+  <div class="content-area">
+    <div class="grid-3 road-grid">
+      <div class="card road-card" data-c="coral"><div class="road-n">30<small>days</small></div><div class="road-t">Stabilise</div><ul class="mini-list road-list"><li>Database SME on shift, hand-off running with your DBA</li><li>5 to 10 PM CT window analysed, root cause isolated</li><li>Dev jobs out of the window, alerting live</li><li>Target: zero unplanned outages in the window</li></ul></div>
+      <div class="card road-card" data-c="gold"><div class="road-n">60<small>days</small></div><div class="road-t">Recover</div><ul class="mini-list road-list"><li>Yield Management Report delivered on the modern stack</li><li>The 30 days recovered with the prioritisation gate holding</li><li>Line Haul migration continuing on the recovered date</li><li>QA running on every release as a named role</li></ul></div>
+      <div class="card road-card" data-c="teal"><div class="road-n">90<small>days</small></div><div class="road-t">Expand</div><ul class="mini-list road-list"><li>Optimization and Operations Research profile interviewed</li><li>Applied AI Solution Development profile interviewed</li><li>Modernised data layer positioned as the foundation for AI use cases</li><li>Monthly reviews shift from corrections to opportunities</li></ul></div>
+    </div>
+    <div class="road-track"><div class="road-fill" id="road-fill"></div><div class="road-pin" style="left:0"><i></i>Tonight</div><div class="road-pin" style="left:33.3%"><i></i>Coffee Meet 05</div><div class="road-pin" style="left:66.6%"><i></i>Coffee Meet 06</div><div class="road-pin" style="left:100%"><i></i>Year end</div></div>
   </div>
 </section>
 
 <!-- SCENE 7 OF 7: CLOSE -->
-<section class="scene" data-scene="6">
+<section class="scene" data-scene="9">
   <div class="eyebrow">Closing</div>
   <h2>Where this leaves us</h2>
-  <p class="lead">Your feedback from tonight on the left. The decisions that move the pod forward on the right.</p>
+  <p class="lead">Your feedback from tonight on the left. The four decisions that move the pod forward on the right.</p>
   <div class="content-area">
     <div class="grid-2" style="flex:1;min-height:0">
       <div class="card close-card captured">
@@ -1042,8 +1120,8 @@ body.print-mode .slip-fill{transition:none}
       <div class="card close-card commits">
         <div class="close-head"><span><svg class="ico"><use href="#i-check-circle"/></svg></span>What we ask of RRTS tonight</div>
         <div class="close-list">
-          <div class="close-item cat-blocker"><div class="close-item-cat">01 &middot; SERVER HEALTH</div><div class="close-item-text">Green light for the offshore DBA build resource, and a joint working session with your DBA on the 5 to 10 PM CT window.</div></div>
-          <div class="close-item cat-improvement"><div class="close-item-cat">02 &middot; DELIVERY</div><div class="close-item-text">Agree the ad hoc prioritisation gate so the Yield Management Report date is protected from here on.</div></div>
+          <div class="close-item cat-blocker"><div class="close-item-cat">01 &middot; SERVER HEALTH</div><div class="close-item-text">Green light for the database SME to work alongside your DBA, starting with a joint session on the 5 to 10 PM CT window.</div></div>
+          <div class="close-item cat-improvement"><div class="close-item-cat">02 &middot; FOCUS</div><div class="close-item-text">Agree the prioritisation gate for unplanned work so the Yield Management Report date is protected from here on.</div></div>
           <div class="close-item cat-question"><div class="close-item-cat">03 &middot; QUALITY</div><div class="close-item-text">Your view on QA as a named pod role from the next cycle.</div></div>
           <div class="close-item cat-praise"><div class="close-item-cat">04 &middot; TALENT</div><div class="close-item-text">Confirmation to submit profiles for Optimization and Operations Research, Applied AI, and data science roles.</div></div>
         </div>
@@ -1112,7 +1190,7 @@ body.print-mode .slip-fill{transition:none}
 // ============================================================
 // STATE
 // ============================================================
-var SCENES = ['Cover','Delivered','Server health','Delivery reality','Proposals','Journey','Close'];
+var SCENES = ['Cover','Came from','What happened','What it cost','What we did','The finding','Server proposal','Pod proposals','Road ahead','Close'];
 var current = 0;
 // ── CLOUD CAPTURE CONFIG ─────────────────────
 // STEP 1: Open this file in any text editor
@@ -1281,7 +1359,7 @@ function drawLoopSpokes(){
   svg.innerHTML=p;
 }
 var _lsT;
-window.addEventListener('resize',function(){ if(current===6){ clearTimeout(_lsT); _lsT=setTimeout(drawLoopSpokes,150); } });
+window.addEventListener('resize',function(){ if(current===9){ clearTimeout(_lsT); _lsT=setTimeout(drawLoopSpokes,150); } });
 
 
 // ===== INTERACTION LAYER =====
@@ -1296,11 +1374,17 @@ function animateSlip(){
   f.forEach(function(el){ el.style.width='0'; });
   setTimeout(function(){ f.forEach(function(el){ el.style.width=el.getAttribute('data-w')+'%'; }); }, 250);
 }
+function animateBars(){
+  var f=document.querySelectorAll('#adhoc-chart .ah-fill'); if(!f.length) return;
+  f.forEach(function(el){ el.style.width='0'; });
+  setTimeout(function(){ f.forEach(function(el,k){ setTimeout(function(){ el.style.width=el.getAttribute('data-w')+'%'; }, k*180); }); }, 250);
+}
 var PROP_TXT=[
-  'What changes with the DBA on shift: the 5 to 10 PM CT window is covered every day, blocking sessions are killed and jobs restarted on the spot, and your DBA starts each morning with a clean hand-off instead of a backlog.',
   'What changes with QA as a named role: every production push runs the full regression suite before your users see it, errors are routed the same day, and the four engineers stay on the Yield Management Report.',
+  'What changes with the prioritisation gate: unplanned requests still get done, but each one is weighed against the Yield Management Report date first, jointly, so the delay stops growing and the register shows exactly where every hour went.',
   'What changes with data science and applied AI on the pod: the two roles Andrew has opened get screened profiles within two weeks, and the modernised data layer becomes the foundation for optimisation and AI use cases.'
 ];
+function animateRoad(){ var f=document.getElementById('road-fill'); if(!f) return; f.style.width='0'; setTimeout(function(){ f.style.width='100%'; },300); }
 var PROP_DEFAULT='';
 function pickProp(i){
   var cards=document.querySelectorAll('.prop-card'), ft=document.getElementById('prop-footer'), tx=document.getElementById('prop-footer-text');
@@ -1311,6 +1395,20 @@ function pickProp(i){
   if(already){ tx.textContent=PROP_DEFAULT; return; }
   cards.forEach(function(c,k){ c.classList.toggle('picked',k===i); c.classList.toggle('dim',k!==i); });
   ft.classList.add('p'+i); tx.textContent=PROP_TXT[i];
+}
+var ACT_TXT=[
+  'Why: the Prolane load into the modernisation environment was one more writer on a server already short of log space. Reversing it removed a suspect at no cost to users.',
+  'Why: Spot Quotes ran inside the peak window. It was rewritten for efficiency and moved, so the busiest hours carry one job fewer.',
+  'Why: the log was filling during the window. Extra disk gave it headroom. Failures continued, which told us the cause is consumption, not just capacity.',
+  'Why: the 7:30 PM Line Haul schedule was found to skip the 11:30 PM run on a regular basis. A duplicate schedule that hurt more than it helped was retired.',
+  'Why: an outdated gateway blocked the Copy command. Upgrading it shortened runtimes, which shortens the time each job spends inside the window.',
+  'Why: the dev workspace Sales job added non-production load at the worst time of day. It was switched off to give production the server.',
+  'Why: backups can hold locks and consume I/O. The Rubrik job was disabled and the environment tested in isolation to rule it in or out.',
+  'The honest position: seven actions removed seven suspects. The failures continued. Finding the root cause from outside the server, without DBA rights or a database specialist, is slow and uncertain. That is the case for the next scene.'
+];
+function actInfo(i){
+  var acts=document.querySelectorAll('.act'); acts.forEach(function(a,k){ a.classList.toggle('picked',k===i); });
+  var box=document.getElementById('act-info'); box.textContent=ACT_TXT[i]; box.classList.add('lit'); setTimeout(function(){box.classList.remove('lit');},400);
 }
 
 function buildTabs(){
@@ -1331,10 +1429,10 @@ function render(){
   document.getElementById('prog-meta').textContent = 'Scene '+(current+1)+' of '+SCENES.length;
   document.getElementById('prev-btn').disabled = (current===0);
   document.getElementById('next-btn').disabled = (current===SCENES.length-1);
-  if(current===6){ renderCloseCaptures(); }
-  if(current===5){ renderJourney(jCurrent); }
-  if(current===2){ countUp(); }
-  if(current===3){ animateSlip(); }
+  if(current===9){ renderCloseCaptures(); }
+  if(current===2||current===3||current===4){ countUp(current); }
+  if(current===3){ animateBars(); animateSlip(); }
+  if(current===8){ animateRoad(); }
 }
 function go(i){ if(i<0||i>=SCENES.length) return; current=i; render(); }
 function next(){ if(current<SCENES.length-1){ current++; render(); } }
@@ -1343,8 +1441,8 @@ function prev(){ if(current>0){ current--; render(); } }
 // ============================================================
 // JOURNEY RENDER
 // ============================================================
-function countUp(){
-  var sc=document.querySelector('.scene[data-scene="2"]');
+function countUp(i){
+  var sc=document.querySelector('.scene[data-scene="'+i+'"]');
   if(!sc)return;
   sc.querySelectorAll('.num').forEach(function(el){
     var to=parseInt(el.getAttribute('data-to'),10)||0,start=null,dur=1400;
@@ -1612,8 +1710,7 @@ document.addEventListener('keydown', function(e){
 // INIT
 // ============================================================
 buildTabs();
-buildJourneyTabs();
-renderJourney(4);
+if(document.getElementById("j-tabs")){ buildJourneyTabs(); renderJourney(4); }
 selCat('improvement');
 (function(){var pd=document.querySelector('.pod-diagram');if(pd){var b=pd.querySelectorAll('.pod-band');for(var i=b.length-1;i>=1;i--){var d=document.createElement('div');d.className='pod-conn';pd.insertBefore(d,b[i]);}}})();
 
@@ -1626,7 +1723,7 @@ cloudRead(function(){
 startPoll();
 
 render();
-if(location.search.indexOf('print')>-1){ document.body.classList.add('print-mode'); renderJourney(4); renderCloseCaptures(); animateSlip(); }
+if(location.search.indexOf('print')>-1){ document.body.classList.add('print-mode'); renderCloseCaptures(); animateSlip(); animateBars(); animateRoad(); }
 </script>
 </body>
 </html>
